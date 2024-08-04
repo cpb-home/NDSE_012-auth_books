@@ -1,7 +1,8 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const session = require('express-session');
-const passport = require('passport');
+//const passport = require('passport');
+const passport = require('./middleware/strategy')
 const LocalStrategy = require('passport-local').Strategy;
 const Users = require('./models/users');
 
@@ -12,10 +13,10 @@ const mainUrl = process.env.MAIN_URL || '/api';
 const error404 = require('./middleware/404');
 const booksRouter = require('./routes/api/books');
 const usersRouter = require('./routes/api/users');
-
+/*
 const verify = (username, password, done) => {
-  Users.findOne({ username : username}).then(user => {console.log(user); done(null, user)}).catch(e => {done(e); console.log (e)});
-  
+  Users.findOne({ username : username}).then(user => {console.log(user); return done(null, user)}).catch(e => {console.log (e); return done(e); });
+  */
   /*
   Users.findOne({}, { username : username}, (err,user) => {
     return err 
@@ -34,7 +35,7 @@ const verify = (username, password, done) => {
       console.log(3); 
       return done(null, user)
   })*/
-}
+/*}
 
 const options = {
   usernameField: "username",
@@ -54,7 +55,7 @@ passport.deserializeUser( (id, cb) => {
   })
 })
 
-
+*/
 
 const app = express();
 

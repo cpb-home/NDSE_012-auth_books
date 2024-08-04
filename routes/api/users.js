@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Users = require('../../models/users');
-const passport = require('passport');
+const passport = require('../../middleware/strategy');
 const LocalStrategy = require('passport-local').Strategy;
 
 router.get('/login', (req, res) => {
