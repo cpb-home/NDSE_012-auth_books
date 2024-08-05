@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const session = require('express-session');
 //const passport = require('passport');
-const passport = require('./middleware/strategy')
+const passport = require('./middleware/auth')
 const LocalStrategy = require('passport-local').Strategy;
 const Users = require('./models/users');
 

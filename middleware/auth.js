@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const Users = require('../models/users');
 
 const verify = (username, password, done) => {
-  Users.findOne({ username : username}).then(user => {console.log(user); return done(null, user)}).catch(e => {console.log (e); return done(e); });
+  Users.findOne({ username : username, password: password}).then(user => done(null, user)).catch(e => done(e));
 }
 
 const options = {
@@ -18,10 +18,7 @@ passport.serializeUser((user, cb) => {
 })
 
 passport.deserializeUser( (id, cb) => {
-  Users.findById(id,  (err, user) => {
-    if (err) { return cb(err) }
-    cb(null, user)
-  })
+  Users.findById(id).then(user => cb(null, user)).catch(e => cb(e))
 })
 
 module.exports = passport;

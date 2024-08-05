@@ -241,8 +241,36 @@ label {
     }
 }
 
+.meBlock {
+    margin: 0 auto;
+    width: 60%;
+    padding: 5px;
+    text-align: center;
+}
 
+.meBlock a {
+    color: var(--color-bg-darkgreen);
+    text-decoration: none;
+}
 
+.bordered {
+    border: 1px solid var(--color-bg-darkgreen);
+}
+
+.userTable {
+    width: 100%;
+}
+
+.userTable td {
+    text-align: right;
+    padding: 3px;
+    font-size: 16px;
+}
+
+.userTable td:nth-child(even) {
+    text-align: left;
+    width: 60%;
+}
 
 .footer {
     background-color: var(--color-bg-darkgreen);
